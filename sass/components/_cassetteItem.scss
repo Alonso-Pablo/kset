@@ -1,0 +1,22 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+
+.cassette-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1.5rem 2rem;
+  @include border-radius($bright-cream, 6px);
+}
+
+.cassette-cassette {
+  width: 8.8rem;
+  height: 5.6rem;
+}
+
+.cassette-title {
+  word-break: break-word;
+  overflow: hidden;
+}
+

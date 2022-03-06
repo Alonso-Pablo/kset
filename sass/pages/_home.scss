@@ -1,0 +1,55 @@
+@import '../utils/_variables.scss';
+
+.home-main {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+}
+.home-hero {
+	margin-top: 2rem;
+	flex-grow: 2;
+}
+.home-title {
+	font-family: $secondary-font;
+	font-size: $font-b;
+	line-height: 4.7rem;
+	text-align: center;
+}
+.home-cassette-list {
+	margin-top: 2rem;
+	padding-bottom: 5rem;
+}
+
+@media (min-width: 600px) and (max-width: 1080px) {
+	.home-hero {
+		margin: 2rem auto 0 auto;
+		max-width: 800px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row-reverse;
+		gap: 4rem;
+	}
+}
+
+@media (min-width: 1080px) {
+	.home-main {
+	  flex-grow: 1;
+		flex-direction: row;
+		align-items: center;
+		margin: 0;
+	}
+  .hero-title {
+		font-size: $font-sb;
+	}
+	.home-hero {
+		margin: 0;
+		gap: 4rem;
+	}
+	.home-cassette-list {
+		flex-grow: 5;
+		margin: 0;
+		overflow-y: scroll;
+		height: calc(100vh - 6.7rem);
+	}
+}

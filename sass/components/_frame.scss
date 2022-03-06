@@ -1,0 +1,12 @@
+@import '../utils/_variables.scss';
+@import '../utils/_mixins.scss';
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 45rem;
+  @include border-radius($bright-cream, 6px);
+  padding: 4rem 2rem;
+}
+

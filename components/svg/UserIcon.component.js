@@ -1,11 +1,9 @@
 export default function UserIcon({
-  width='31',
-  height='30',
   color='#F2EAD7',
   active=false,
 }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
       { active
         ? <>
           <path d="M3.43791 19.4304C4.67073 17.6785 6.88261 16.9066 8.93777 17.5111L13.3093 18.7968C13.7674 18.9316 14.2426 19 14.7201 19H16.28C16.7576 19 17.2327 18.9316 17.6909 18.7968L22.0624 17.5111C24.1175 16.9066 26.3294 17.6785 27.5622 19.4304L29.4567 22.1225C31.7879 25.4353 29.4184 30 25.3676 30H5.63251C1.58173 30 -0.787717 25.4353 1.54348 22.1225L3.43791 19.4304Z" fill={color} />

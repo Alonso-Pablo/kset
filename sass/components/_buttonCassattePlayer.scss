@@ -1,0 +1,21 @@
+@import '../utils/_variables.scss';
+
+.button-cassette-player-back {
+  position: relative;
+  width: 9rem;
+  height: 7rem;
+  border-radius: 1.5rem;
+  background-color: $almost-black;
+}
+
+.button-cassette-player-front {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 7rem;
+  top: -1.5rem;
+  border-radius: 1.5rem;
+  background-color: $dark-gray;
+}

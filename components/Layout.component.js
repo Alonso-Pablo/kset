@@ -5,6 +5,7 @@ import Footer from './Footer.component'
 export default function Layout({
   title='KSET',
   description='Un lugar para los amantes del cassette y lo clásico.',
+  page,
   children,
 }) {
   return (
@@ -14,9 +15,9 @@ export default function Layout({
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <Navbar />
+      <Navbar page={page} />
       { children }
-      <Footer />
+      <Footer page={page} />
     </>
   )
 }
