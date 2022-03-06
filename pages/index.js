@@ -25,7 +25,7 @@ export default function Home({ items }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/cassette')
+  const res = await fetch(`${process.env.BASE_URL}/api/cassette`)
   const { items } = await res.json()
   return { props: { items } }
 }
