@@ -1,6 +1,4 @@
 export default function Cassette({
-  width='140',
-  height='90',
   color: {
     body='#3E3B3C',
     holes='#241E20',
@@ -8,11 +6,12 @@ export default function Cassette({
       upper='#EEF2FF',
       middle='#FE4D1B',
       bottom='#EEF2FF',
-    }
-  },
+    } = {},
+  } = {},
+  className,
 }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 140 89.36" fill="none">
       <path d="M0 4C0 1.79086 1.79086 0 4 0H137C139.209 0 140 1.79086 140 4V86C141 88.2091 139.209 90 137 90H4C1.79086 90 0 88.2091 0 86V4Z" fill={body} />
       <path d="M54 80C54 81.6569 52.6569 83 51 83C49.3431 83 48 81.6569 48 80C48 78.3431 49.3431 77 51 77C52.6569 77 54 78.3431 54 80Z" fill={holes} />
       <path d="M93 80C93 81.6569 91.6569 83 90 83C88.3431 83 87 81.6569 87 80C87 78.3431 88.3431 77 90 77C91.6569 77 93 78.3431 93 80Z" fill={holes} />
@@ -27,3 +26,4 @@ export default function Cassette({
     </svg>
   )
 }
+
