@@ -1,19 +1,168 @@
-// Display
+@import '../utils/_variables.scss';
 
+// Display
 .d-flex {
 	display: flex;
+}
+.d-none {
+	display: none;
+}
+.d-inline {
+	display: inline-block;
+}
+
+.fd-column {
+	display: flex;
+	flex-direction: column;
+}
+.jc-center{
+	display: flex;
+	justify-content: center;
 }
 
 .w-100 {
 	width: 100%;
 }
+.w-80 {
+	width: 80%;
+}
 .h-100 {
-	height: 100%;
+  height: 100%;
+}
+
+.max-w-800 {
+	max-width: 800px;
 }
 
 // Backgrounds
 
 .bg-black {
-	background-color: black;
+  background-color: $black;
 }
 
+.bg-transparent {
+	background-color: transparent;
+}
+
+.br-none {
+	border: none;
+}
+
+.message-icon {
+	width: 25px;
+	height: 25px;
+  border: 1px solid white;
+	border-radius: 100%;
+}
+
+// Fonts:
+.txt-center {
+	text-align: center;
+}
+
+.font-mb {
+	font-size: $font-mb;
+	font-weight: 700;
+	text-align: center;
+}
+
+.font-m {
+ font-size: $font-m;
+ font-weight: 700;
+}
+
+.font-s {
+	font-size: $font-s;
+	font-weight: 400;
+}
+
+.secundary-font {
+	font-family: $secondary-font;
+	font-size: $font-b;
+	line-height: 4.7rem;
+	text-align: center;
+}
+
+.txt-bright-rose {
+	color: $bright-rose;
+}
+
+.txt-bright-cream {
+	color: $bright-cream;
+}
+
+// overflow
+.of-y-scroll {
+	overflow-y: scroll;
+}
+
+// margin
+.m-lr-auto {
+	margin: 0 auto;
+}
+
+.m-l-5 {
+	margin-left: .5rem;
+}
+.m-l-20 {
+	margin-left: 2rem;
+}
+.p-l-20 {
+	padding-left: 2rem;
+}
+
+.p-lr-20 {
+	padding: 0 2rem;
+}
+
+.m-t-5 {
+	margin-top: .5rem;
+}
+.m-t-15 {
+	margin-top: 1.5rem;
+}
+.m-t-20 {
+	margin-top: 2rem;
+}
+.m-t-40 {
+	margin-top: 4rem;
+}
+.m-t-50 {
+	margin-top: 5rem;
+}
+.m-b-50 {
+	margin-bottom: 5rem;
+}
+
+// wired
+
+.spinner {
+	border: 4px solid rgba(0, 0, 0, 0.0);
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  border-left-color: #FF5959;
+  animation: spin 1.5s ease infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Used in navbar logo.
+.w-278 {
+	width: 26.7rem;
+}
+
+.max-h-60 {
+	max-height: calc(100% - 60px);
+}
+
+.br-100 {
+	border-radius: 100%;
+}
+
+.pointer {
+	cursor: pointer;
+}

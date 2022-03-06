@@ -1,0 +1,30 @@
+@import '../utils/_variables.scss';
+
+.play-cassette-list {
+ 	height: 25rem;
+	margin: 0 auto;
+ 	overflow-y: scroll;
+  border: 2px solid white;
+	border-radius: 6px;
+}
+
+.play-cassette-player {
+	max-width: 45rem;
+	margin: 0 auto;
+	margin-top: 2rem;
+	padding: 4rem 2rem;
+	background-color: $almost-black; 
+	border-radius: 1.5rem;
+}
+
+.play-cassette-container {
+	background-color: $black;
+	padding: 1rem;
+	border-radius: 1.5rem;
+}
+
+.play-cassette-button-container {
+	display: flex;
+	justify-content: space-between;
+}
+

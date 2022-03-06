@@ -1,0 +1,23 @@
+@import '../utils/_mixins.scss';
+@import '../utils/_variables.scss';
+
+.searcher-container {
+  display: flex;
+  max-width: 44rem;
+  padding: .5rem 1rem;
+  @include border-radius($bright-cream, 0.6rem);
+}
+
+.searcher-input {
+  font-size: $font-mb;
+  color: $bright-cream;
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+}
+ 
+.searcher-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

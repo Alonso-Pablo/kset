@@ -1,9 +1,15 @@
+@import '../utils/_variables.scss';
+
 .footer {
+	position: fixed;
+	bottom: 0;
 	display: flex;
-	height: 60px;
+	width: 100%;
+	justify-self: flex-end;
+	min-height: 5rem;
 	justify-content: center;
 	align-items: center;
-	background-color: #241E20;
+	background-color: $dark-gray;
 }
 
 .footer-container {
@@ -16,5 +22,11 @@
 .footer-item {
 	display: flex;
 	align-items: center;
+}
+
+@media (min-width: 1080px) {
+	.footer {
+		display: none;
+	}
 }
 

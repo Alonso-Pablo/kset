@@ -1,0 +1,10 @@
+@mixin border-radius($color, $radius) {
+	border: 2px solid $color;
+	border-radius: $radius;
+}
+
+@mixin column-center-h() {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

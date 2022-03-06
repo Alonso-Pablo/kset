@@ -1,0 +1,18 @@
+@use './_login.scss';
+
+.signup-main {
+	@extend .login-main;
+}
+
+.signup-input-container {
+	@extend .login-input-container;
+}
+
+.signup-input {
+	@extend .login-input;
+}
+
+// .signup-error-container {
+// 	@extend .login-error-container;
+// }
+

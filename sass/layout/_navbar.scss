@@ -1,0 +1,48 @@
+@import '../utils/_variables.scss';
+
+.navbar {
+	display: flex;
+	justify-content: center;
+	min-height: 5rem;
+	padding: 0 2rem;
+	border-bottom: 2px solid $bright-cream;
+}
+
+.navbar-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navbar-items-desktop {
+	display: none;
+}
+
+.navbar-search {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+}
+
+.navbar-sign {
+	display: flex;
+	align-items: center;
+}
+
+.navbar-signout {
+	display: flex;
+	justify-content: flex-end;
+}
+
+@media (min-width: 1080px) {
+	.navbar {
+    min-height: 6.7rem;
+	}
+	.navbar-items-desktop {
+		display: flex;
+	  justify-content: space-between;
+		align-items: center;
+		flex-grow: 1;
+	}
+}
