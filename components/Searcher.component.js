@@ -40,7 +40,6 @@ export default function Searcher({
   // To avoid delaying the filtering of the cassettes I use a useEffect. (async issue)
   function filterMatches() {
     const matchedCassetteIds = hits.map(el => el.objectID)
-    console.log(matchedCassetteIds)
     filterCassettes(matchedCassetteIds)
   }
 
