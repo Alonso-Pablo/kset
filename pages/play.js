@@ -196,7 +196,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-  const res = await fetch('http://localhost:3000/api/cassette')
+  const res = await fetch(`${process.env.BASE_URL}/api/cassette`)
   const { items: cassettes } = await res.json()
   return { props: { cassettes } }
 }
