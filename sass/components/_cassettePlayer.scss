@@ -1,0 +1,26 @@
+@import '../utils/_variables.scss';
+
+.cassette-player {
+	max-width: 45rem;
+	margin: 0 auto;
+	margin-top: 2rem;
+	padding: 4rem 2rem;
+	background-color: $almost-black; 
+	border-radius: 1.5rem;
+}
+
+.cassette-player-container {
+	background-color: $black;
+	padding: 1rem;
+	border-radius: 1.5rem;
+}
+
+.cassette-player-buttons-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cassette-empty {
+  width: 39rem;
+  height: 25.1rem;
+}
