@@ -2,7 +2,7 @@ import Layout from '../components/Layout.component'
 import IsotypeSvg from '../components/svg/IsotypeSvg.component'
 import CassetteList from '../components/CassetteList.component'
 
-export default function Home({ items }) {
+export default function Home({ cassettes }) {
   return (
     <Layout>
       <main className="home-main">
@@ -18,7 +18,7 @@ export default function Home({ items }) {
           </div>
         </div>
 
-        <CassetteList data={items} className={"home-cassette-list p-lr-20"}/>
+        <CassetteList cassettes={cassettes} className={"home-cassette-list p-lr-20"}/>
       </main>
     </Layout>
   )
@@ -26,6 +26,6 @@ export default function Home({ items }) {
 
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.BASE_URL}/api/cassette`)
-  const { items } = await res.json()
-  return { props: { items } }
+  const { items: cassettes } = await res.json()
+  return { props: { cassettes } }
 }
