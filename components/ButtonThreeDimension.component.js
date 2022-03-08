@@ -3,7 +3,8 @@ export default function ButtonThreeDimension({
   click=() => {},
   text='',
   children='',
-  disabled='',
+  disabled=false,
+  loading=false,
   className='',
   color: {
     front='#F2EAD7',
@@ -15,7 +16,7 @@ export default function ButtonThreeDimension({
   return (
     <button onClick={click} disabled={disabled} type={type} className={`back-btn ${className}`} style={{backgroundColor: back}}>
       <div className="front-btn" style={{backgroundColor: front}}>
-      { disabled
+      { loading
         ? <div className="jc-center">
           <span className="spinner"></span>
         </div>
