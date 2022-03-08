@@ -36,7 +36,7 @@ export default function Play({ cassettes }) {
     <Layout page="play">
       <main>
 
-        <CassetteList data={cassettes} className="play-cassette-list max-w-800 p-lr-20" />
+        <CassetteList cassettes={cassettes} className="play-cassette-list max-w-800 p-lr-20" />
 
         <CassettePlayer song={song} />
 
@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-  const getAllCassettes = await fetch(`${process.env.BASE_URL}/api/cassette`)
-  const { items: cassettes } = await getAllCassettes.json()
+  const res = await fetch(`${process.env.BASE_URL}/api/cassette`)
+  const { items: cassettes } = await res.json()
   return { props: { cassettes } }
 }
