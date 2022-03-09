@@ -1,12 +1,43 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import LogoSvg from './svg/LogoSvg.component'
-import ButtonThreeDimension from './ButtonThreeDimension.component'
-import Searcher from './Searcher.component'
 import { signOut, useSession } from 'next-auth/react'
+
+import Searcher from './Searcher.component'
+import ButtonThreeDimension from './ButtonThreeDimension.component'
+import CassetteList from './CassetteList.component'
+
+import LogoSvg from './svg/LogoSvg.component'
 import SignOutIcon from './svg/SignOutIcon.component'
 
 export default function Navbar({ page }) {
   const { data: session, status } = useSession()
+
+  const [ cassettes, setCassettes ] = useState([])
+
+  async function getCassettes() {
+    const res = await fetch('/api/cassette')
+    const { items: cassettes } = await res.json()
+    setCassettes(cassettes)
+  }
+
+  useEffect(()=> {
+    getCassettes()
+  },[])
+
+  const [ showSuggestions, setShowSuggestions ] = useState(false)
+
+  function displaySuggestions(inputValue) {
+    if (!inputValue) {
+      setShowSuggestions(false)
+      return
+    }
+
+    setShowSuggestions(true)
+  }
+
+  function hiddenSuggestions() {
+    setShowSuggestions(false)
+  }
 
   return (
     <nav className="navbar">
@@ -21,8 +52,11 @@ export default function Navbar({ page }) {
           <div className="navbar-search">
             {
               page !== 'search'
-              ? <Searcher placeholder="Buscar cassette..."/>
-              : ""
+                ? <>
+                  <Searcher onFocus={displaySuggestions} onBlur={hiddenSuggestions} placeholder="Buscar cassette..."/>
+                  { showSuggestions && <CassetteList cassettes={cassettes} className="navbar-suggestions p-lr-20" /> }
+                </>
+                : ""
             }
           </div>
 

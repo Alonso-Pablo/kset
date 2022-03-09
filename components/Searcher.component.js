@@ -22,11 +22,13 @@ export default function Searcher({
   /**
    * Update the filter used to find matching cassettes (onChange)
    */
-  function handlerInput() {
+  function handlerOnChange() {
     const { value } = inputRef.current
     if (!value) {
       clear()
     }
+
+    onFocus(value)
     refine(value) // Refine matches
   }
 
@@ -58,9 +60,8 @@ export default function Searcher({
         name="searcher"
         placeholder={placeholder}
         className="searcher-input"
-        onChange={handlerInput}
+        onChange={handlerOnChange}
         autoComplete="off"
-        onFocus={onFocus}
         onBlur={onBlur}
       />
       <button type="submit" className="searcher-button">
