@@ -20,9 +20,23 @@
 }
 
 .navbar-search {
+	position: relative;
 	display: flex;
 	flex-grow: 1;
 	justify-content: center;
+}
+
+.navbar-suggestions {
+	max-width: 43.6rem;
+	max-height: 40rem;
+	position: absolute;
+	background-color: $black;
+	border: .2rem solid $bright-cream;
+	border-top: none;
+	border-radius: 0 0 .6rem .6rem;
+	top: 4rem;
+	z-index: 900;
+	overflow-y: scroll;
 }
 
 .navbar-sign {
