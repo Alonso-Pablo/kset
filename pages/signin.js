@@ -33,7 +33,7 @@ export default function Login({ csrfToken }) {
   const {
     register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors },
   } = useForm({
     mode: 'onTouched',
     resolver: yupResolver(signInCredentials),
