@@ -9,7 +9,6 @@ export default function Searcher({
   label,
   placeholder = '',
   filterCassettes = () => {},
-  onFocus = () => {},
   onBlur = () => {}
 }) {
   const router = useRouter()
@@ -22,13 +21,12 @@ export default function Searcher({
   /**
    * Update the filter used to find matching cassettes (onChange)
    */
-  function handlerOnChange() {
+  function handleOnChange() {
     const { value } = inputRef.current
     if (!value) {
       clear()
     }
 
-    onFocus(value)
     refine(value) // Refine matches
   }
 
@@ -60,7 +58,7 @@ export default function Searcher({
         name="searcher"
         placeholder={placeholder}
         className="searcher-input"
-        onChange={handlerOnChange}
+        onChange={handleOnChange}
         autoComplete="off"
         onBlur={onBlur}
       />
