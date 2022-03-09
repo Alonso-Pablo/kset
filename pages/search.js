@@ -23,7 +23,7 @@ export default function Search({ cassettesItems }) {
           filterCassettes={filterCassettes}
         />
 
-        <CassetteList className={"w-100 max-w-800 p-lr-20"} data={cassettes} />
+        <CassetteList cassettes={cassettes} className={"w-100 max-w-800 p-lr-20"} />
 
       </main>
     </Layout>
