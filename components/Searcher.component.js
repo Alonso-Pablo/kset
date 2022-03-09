@@ -1,14 +1,16 @@
 import MagnifyingGlassIcon from './svg/MagnifyingGlassIcon.component'
-import { useState, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useHits } from 'react-instantsearch-hooks'
 import { useSearchBox } from 'react-instantsearch-hooks'
 
 export default function Searcher({
-  filterCassettes = () => {},
   className = '',
   label,
   placeholder = '',
+  filterCassettes = () => {},
+  onFocus = () => {},
+  onBlur = () => {}
 }) {
   const router = useRouter()
 
@@ -52,12 +54,14 @@ export default function Searcher({
       { label && <label htmlFor="searcher">{ label }</label> }
       <input
         id="searcher"
+        ref={inputRef}
         name="searcher"
         placeholder={placeholder}
         className="searcher-input"
         onChange={handlerInput}
-        ref={inputRef}
         autoComplete="off"
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       <button type="submit" className="searcher-button">
         <MagnifyingGlassIcon />
