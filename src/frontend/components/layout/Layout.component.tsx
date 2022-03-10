@@ -15,7 +15,7 @@ export default function Layout({
   description='Un lugar para los amantes del cassette y lo clásico.',
   hideSearchInput = false,
   children,
-}: LayoutProps)  {
+}: LayoutProps) {
   return (
     <>
       <Head>
