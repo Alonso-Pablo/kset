@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Navbar from '../Navbar.component'
-import Footer from '../Footer.component'
 import { ReactElement } from 'react'
+import Head from 'next/head'
+import Navbar from '@frontend/components/Navbar.component'
+import Footer from '@frontend/components/Footer.component'
 
 interface LayoutProps {
   title?: string;
