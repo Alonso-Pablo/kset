@@ -1,14 +1,18 @@
-import db from '../../lib/databaseConnect'
-import Users from '../../models/user'
-import jsonStatus from '../../lib/jsonStatus'
 import nextConnect from 'next-connect'
+import { NextApiRequest, NextApiResponse } from 'next/types'
+import dbConnect from '@backend/lib/databaseConnect'
+import jsonStatus from '@backend/lib/jsonStatus'
+import { UserInterface } from '@shared/models/user'
 
-db(process.env.DB_MONGO_URI)
+// Services
+import { getUserByEmail, getUserByName } from '@backend/services/user.service'
+
+dbConnect(process.env.DB_MONGO_URI)
 
 /**
- * Methods handler wth next-connect
+ * Methods handler with next-connect
  */
-const router = nextConnect({
+const router = nextConnect<NextApiRequest,NextApiResponse>({
   onError(error, req, res) {
     res.status(501).json(jsonStatus(501, error.message))
   },
@@ -17,17 +21,27 @@ const router = nextConnect({
   }
 })
 
+interface GetRequestQuery {
+  name?: string;
+  email?: string;
+}
+
+interface GetResponse {
+  success: string | null;
+  errors: { name: string | null, email: string | null };
+}
+
 /**
  * GET
  */
 router.get(async (req, res) => {
-  const { name, email } = req.query
+  const { name, email }: GetRequestQuery = req.query
 
-  const response = {
-    success: '',
+  const response: GetResponse = {
+    success: null,
     errors: {
-      name: '',
-      email: '',
+      name: null,
+      email: null,
     }
   }
 
@@ -35,7 +49,7 @@ router.get(async (req, res) => {
    * Check if name is already in use
    */
   if (name) {
-    const foundUser = await Users.findOne({ name: `${name}` }).exec()
+    const foundUser: UserInterface = await getUserByName(name)
 
     if (foundUser) {
       res.status(409).json(jsonStatus(409, {
@@ -57,7 +71,7 @@ router.get(async (req, res) => {
    * Check if email is already in use
    */
   if (email) {
-    const foundUser = await Users.findOne({ email: `${email}` }).exec()
+    const foundUser: UserInterface = await getUserByEmail(email)
 
     if (foundUser) {
       res.status(409).json(jsonStatus(409, {

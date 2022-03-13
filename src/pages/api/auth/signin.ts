@@ -1,15 +1,17 @@
-import db from '../../../lib/databaseConnect'
-import Users from '../../../models/user'
-import jsonStatus from '../../../lib/jsonStatus'
 import nextConnect from 'next-connect'
 import bcrypt from 'bcrypt'
+import db from '@backend/lib/databaseConnect'
+import jsonStatus from '@backend/lib/jsonStatus'
+import { getUserByEmail } from '@backend/services/user.service'
+
+import type { NextApiRequest, NextApiResponse } from 'next/types'
 
 db(process.env.DB_MONGO_URI)
 
 /**
  * Methods handler wth next-connect
  */
- const router = nextConnect({
+ const router = nextConnect<NextApiRequest,NextApiResponse>({
   onError(error, req, res) {
     res.status(501).json(jsonStatus(501, error.message))
   },
@@ -18,23 +20,27 @@ db(process.env.DB_MONGO_URI)
   }
 })
 
-router.post(async (req, res) => {
-  const { email, password } = req.body
+interface SignInRequestBody {
+  email: string;
+  password: string;
+}
 
-  /**
-   * Search for the user by email and if it is not found, we return a 404 error.
-   */
-  const foundUser = await Users.findOne({ email: `${email}` }).exec()
+interface UserEssential {
+  name: string;
+  email: string;
+}
+
+router.post(async (req, res) => {
+  const { email, password }: SignInRequestBody = req.body
+
+  const foundUser = await getUserByEmail(email)
 
   if (!foundUser) {
     res.status(404).json( jsonStatus(404) )
     return
   }
 
-  /**
-   * Compare the password with the encrypted password stored in the database
-   */
-  const isMatch = await bcrypt.compare(`${password}`, foundUser.password)
+  const isMatch = await bcrypt.compare(password, foundUser.password)
 
   if (!isMatch) {
     res.status(404).json( jsonStatus(404) )
