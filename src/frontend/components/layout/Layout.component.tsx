@@ -1,13 +1,13 @@
 import { ReactElement } from 'react'
 import Head from 'next/head'
-import Navbar from '@frontend/components/Navbar.component'
-import Footer from '@frontend/components/Footer.component'
+import Navbar from '@frontend/components/layout/Navbar.component'
+import Footer from '@frontend/components/layout/Footer.component'
 
 interface LayoutProps {
   title?: string;
   description?: string;
   hideSearchInput?: boolean;
-  children: ReactElement;
+  children: ReactElement[] | ReactElement;
 }
 
 export default function Layout({

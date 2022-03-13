@@ -1,4 +1,12 @@
-import { useState } from "react"
+import { ReactElement, RefObject, useState } from "react"
+
+interface ButtonCassettePlayerProps {
+  id?: string;
+  children: ReactElement;
+  onClick?: ()=>void;
+  disabled?: boolean;
+  innerRef?: RefObject<HTMLDivElement>;
+}
 
 export default function ButtonCassettePlayer({
   id,
@@ -6,11 +14,11 @@ export default function ButtonCassettePlayer({
   onClick = ()=>{},
   disabled = false,
   innerRef,
-}) {
+}: ButtonCassettePlayerProps) {
 
-  const [ pressed, setPressed ] = useState(disabled) // If the button is disabled it will be pressed.
+  const [ pressed, setPressed ] = useState<boolean>(disabled)
 
-  function handleClick() {
+  function handleOnClick() {
     if (disabled) {
       if (pressed) {
         setPressed(true)
@@ -23,14 +31,14 @@ export default function ButtonCassettePlayer({
     onClick()
   }
 
-  const classAnimation = disabled ? '' : (pressed ? 'btn-squeezing' : '')
+  const classAnimation = disabled ? '' : ( pressed ? 'btn-squeezing' : '' )
   return (
     <div
       id={id}
       role="button"
       className="button-cassette-player-back pointer"
       ref={innerRef}
-      onClick={handleClick}
+      onClick={handleOnClick}
     >
       <div className={`button-cassette-player-front ${classAnimation}`}>
         { children }
