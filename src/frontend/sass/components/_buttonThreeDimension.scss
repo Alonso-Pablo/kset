@@ -1,0 +1,24 @@
+@import '../utils/_variables.scss';
+
+.back-btn {
+  width: 100%;
+  position: relative;
+  background-color: $dark-cream;
+  border: none;
+  border-radius: .6rem;
+  cursor: pointer;
+}
+
+.front-btn {
+  position: relative;
+  top: -4px;
+  background-color: $bright-cream;
+  padding: 1rem 2rem;
+  border-radius: .6rem;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.front-btn:active {
+  transform: translate(0,2px);
+}
