@@ -32,7 +32,7 @@ const signUpCredentials = yup.object().shape({
     .max(99, 'La contraseña tiene que tener como maximo 99 caracteres.')
     .matches(passwordRegex, 'La contraseña no es valida; debe tener letras y al menos un número.')
     .required('Este campo es requerido.'),
-  confirmpassword: yup
+  confirmPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], 'Las contraseñas tienen que coincidir.')
     .required('Este campo es requerido.'),
